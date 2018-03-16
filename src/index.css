@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #536878;
+}
+
+#homeScreenContainer{
+	height: 100vh;
+}
+
+#wideInput{
+	width: 400px;
+}
+
+.chart{
+	margin: 10px auto;
+}
+
+.segoe{
+	font-family: "Segoe UI", Helvetica, sans-serif;
+}
+
+#xAxisLabel{
+	position: absolute;
+	top: 0px;
+	left: 2vw;
+	color: #dce5ed;
+}
+
+.container-fluid{
+	position:relative;
+}
+
+
+.progress{
+	position: absolute;
+	top: 0;
+}
+
+.App{
+	transition: opacity 0.5s;
+}
+
+.show{
+	opacity: 1;
+}
+
+.hide{
+	opacity: 0;
+}
+
+.redBorder{
+	border-color: red;
+}
+
+.whiteBorder{
+	border-color: white;
+}
+
+.centerContainer{
+	position: relative;
+	top: 30vh;
+}
