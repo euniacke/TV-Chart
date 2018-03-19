@@ -6,6 +6,7 @@ body {
 
 #homeScreenContainer{
 	height: 100vh;
+	transition: opacity 0.5s;
 }
 
 #wideInput{
@@ -20,10 +21,17 @@ body {
 	font-family: "Segoe UI", Helvetica, sans-serif;
 }
 
-#xAxisLabel{
+#yAxisLabel{
 	position: absolute;
 	top: 0px;
 	left: 2vw;
+	color: #dce5ed;
+}
+
+#xAxisLabel{
+	position: absolute;
+	bottom: -3vh;
+	right: 2vw;
 	color: #dce5ed;
 }
 
@@ -60,4 +68,24 @@ body {
 .centerContainer{
 	position: relative;
 	top: 30vh;
+}
+
+.suggestions{
+	position: relative;
+	left: 25%;
+}
+
+.clickable{
+	cursor: pointer; 
+}
+
+.fade{
+	transition: opacity 0.5s;
+}
+
+#about{
+	color: white;
+	position: absolute;
+	bottom: 10px;
+	left: 15px;
 }
