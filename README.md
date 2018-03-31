@@ -8,3 +8,5 @@ Made with:
 - Bootstrap
 - [Recharts](http://recharts.org/#/en-US/)
 - [OMDB API](http://www.omdbapi.com/)
+
+![screencap](https://i.imgur.com/OD9vgMM.png)
