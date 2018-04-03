@@ -8,6 +8,7 @@ Made with:
 - Bootstrap
 - [Recharts](http://recharts.org/#/en-US/)
 - [OMDB API](http://www.omdbapi.com/)
+
 (Loading may take a while, depending on the load on OMDb's servers.)
 
 Screencap:
