@@ -8,8 +8,8 @@ Made with:
 - Bootstrap
 - [Recharts](http://recharts.org/#/en-US/)
 - [OMDB API](http://www.omdbapi.com/)
+- Firebase database for caching
 
-(Loading may take a while, depending on the load on OMDb's servers.)
 
 Screencap:
 ![screencap](https://i.imgur.com/OD9vgMM.png)
