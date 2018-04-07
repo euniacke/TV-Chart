@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import HomeScreen from './HomeScreen';
 import GraphView from './GraphView';
-import '../App.css';
 
 
 

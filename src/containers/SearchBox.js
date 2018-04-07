@@ -4,6 +4,17 @@ import jsonp from 'jsonp';
 import puff from '../puff.svg';
 import ErrorModal from './ErrorModal';
 import Suggestions from './Suggestions';
+var firebase = require("firebase");
+var config = {
+    apiKey: "AIzaSyCVZfc7WKfaYBE8dyVWdBWJ26RWiRh3ciM",
+    authDomain: "tvchart-8c190.firebaseapp.com",
+    databaseURL: "https://tvchart-8c190.firebaseio.com",
+    projectId: "tvchart-8c190",
+    storageBucket: "tvchart-8c190.appspot.com",
+    messagingSenderId: "237035657890"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
 
 const omdbPrefix= "https://www.omdbapi.com/";
 
@@ -68,6 +79,17 @@ class SearchBox extends Component{
 
   updateRatings(series){
     this.setState({loading:true});
+    database.ref('/'+series.toLowerCase()).once('value').then(snap =>{
+      if(!snap.exists()){
+        this.getRatingsFromOMDB(series);
+        return;
+      }
+      var data=snap.val();
+      this.props.updateMethod(data.title, data.seasons);
+    });
+  }
+
+  getRatingsFromOMDB(series){
     var url=omdbPrefix+"?t="+series+"&type=series&apikey="+process.env.REACT_APP_OMDB_KEY;
     jsonp(url, null, (function (err, data) {
       if (err) {
@@ -81,7 +103,6 @@ class SearchBox extends Component{
         this.getSeasons(data.Title, parseInt(data.totalSeasons));
       }
     }).bind(this));
-
   }
 
   getSeasons(series,numOfSeasons){
@@ -102,6 +123,8 @@ class SearchBox extends Component{
     }
     Promise.all(promises).then(results=>{
       this.setState({disabled:false, loading:false});
+      var data={title:series ,seasons};
+      this.addSeriesToFirebase(series.toLowerCase(), data);
       this.props.updateMethod(series, seasons);
       window.history.pushState({}, series+" Ratings", "/"+series);
       
@@ -122,6 +145,11 @@ class SearchBox extends Component{
     //console.log("ratings: "+ratings)
     return ratings;
   }
+
+  addSeriesToFirebase(series, data){
+    database.ref(series).set(data);
+  }
+
 }
 
 export default SearchBox;
