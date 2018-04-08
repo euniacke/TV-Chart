@@ -4,15 +4,8 @@ import jsonp from 'jsonp';
 import puff from '../puff.svg';
 import ErrorModal from './ErrorModal';
 import Suggestions from './Suggestions';
+import config from '../firebaseConfig'
 var firebase = require("firebase");
-var config = {
-    apiKey: "AIzaSyCVZfc7WKfaYBE8dyVWdBWJ26RWiRh3ciM",
-    authDomain: "tvchart-8c190.firebaseapp.com",
-    databaseURL: "https://tvchart-8c190.firebaseio.com",
-    projectId: "tvchart-8c190",
-    storageBucket: "tvchart-8c190.appspot.com",
-    messagingSenderId: "237035657890"
-};
 firebase.initializeApp(config);
 var database = firebase.database();
 
